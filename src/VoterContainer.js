@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 
 export default class VoterContainer extends React.Component {
 
+
   componentDidUpdate() {
     this.loadMap(); // call loadMap function to load the google map
   }
@@ -36,6 +37,6 @@ export default class VoterContainer extends React.Component {
       <div ref="map" style={style}>
         loading map...
       </div>
-    )
+    );
   }
 }
