@@ -12,8 +12,8 @@ class App extends Component {
         <h1> Find information about your representatives! </h1>
         <h2> Find your nearest polling location! </h2>
         < InputContainer />
-        <VoterContainer google={this.props.google} />
         < Reps />
+        <VoterContainer google={this.props.google} />
       </div>
     );
   }

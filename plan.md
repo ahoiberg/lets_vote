@@ -2,11 +2,13 @@ lets_vote is a react web app designed to provide comprehensive voting informatio
 
 flow is as follows: user enters an address, loading federal, state, and local representative information, along with information about the next election and their nearest voting precinct
 
-will load federal first, then state and local (since voting is coordinated by the states, voting information will come with that portion?)
+all data is loaded from Google Civic Information API  
+should set up key-value pairs between offices and the representative(s) that hold those offices
 
-should find an API (or several) to dynamically update this information
+next step is to get address as input, send that to maps and Civic Info API  
+will need placeholder info before address is inputted (just set up default)
 
-would love to dynamically update districts as well, but that's much more difficult
+Then get information about upcoming elections (which I think is a different part of the civic info API)
 
 (stretch): if possible, find voting records (probably external link)
 
