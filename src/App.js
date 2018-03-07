@@ -4,6 +4,8 @@ import { GoogleApiWrapper } from 'google-maps-react'
 import VoterContainer from './VoterContainer'
 import InputContainer from './InputContainer'
 import Reps from './Reps'
+import {key} from './Keys.js'
+
 //TODO need to update to have single point of truth of location possibly
 class App extends Component {
   render() {
@@ -21,6 +23,6 @@ class App extends Component {
 
 
 export default GoogleApiWrapper({
-   apiKey: 'AIzaSyAagC4cVDd1QZ0kd3-H_lT5eZyO1Ml4GJ4',
+   apiKey: key.map_key,
  })(App)
 
