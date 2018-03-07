@@ -24,7 +24,7 @@ export default class InputContainer extends React.Component {
     handleZipChange(event){
       this.setState({zip: event.target.value})
     }
-
+//todo: display address entered
     render() {
     return (
       <form>
