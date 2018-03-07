@@ -1,3 +1,20 @@
+The standard React README is below. Its super long, so here is a more concise version:  
+
+lets_vote is a react app designed to allow a user to find relevant voting information and information about government representatives to his/her address in the United States.
+
+To run, run the following commands:
+
+```npm install``` installs necessary dependencies
+
+```npm start``` starts development server
+
+I use the [Google Civic Information API](https://developers.google.com/civic-information/) for voter information and the [Google Maps API](https://developers.google.com/maps/) for map information
+
+If you create a file Keys.js in src/ with a variable key, React should be able to use your API keys automatically
+
+Now, for the standard React documentation:
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
