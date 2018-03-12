@@ -27,14 +27,10 @@ export default class Reps extends React.Component {
             let representatives = data.officials.map((official) =>
               {return (official.name)}
               );
-            console.log(offices)
-            console.log(representatives)
             var officials = {} 
             //representatives are keys, offices are values
             //accounts for multiple representatives in an office (e.g. U.S. Senate)
             representatives.map((x, y) => officials[x] = offices[y])
-            console.log(officials)
-            console.log(typeof(officials))
             this.setState({officials: officials})
           });
     }

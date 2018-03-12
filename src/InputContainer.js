@@ -9,6 +9,7 @@ export default class InputContainer extends React.Component {
       this.handleCityChange = this.handleCityChange.bind(this)
       this.handleStChange = this.handleStChange.bind(this)
       this.handleZipChange = this.handleZipChange.bind(this)
+      this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleAddressChange(event) {
@@ -24,7 +25,11 @@ export default class InputContainer extends React.Component {
     handleZipChange(event){
       this.setState({zip: event.target.value})
     }
-//todo: display address entered
+
+    handleSubmit(event) {
+         event.preventDefault();
+     }
+
     render() {
     return (
       <form>
@@ -46,6 +51,9 @@ export default class InputContainer extends React.Component {
           <input type="text" name="zip" onChange={this.handleZipChange} />
         </label>
         <input type="submit" value="Submit" />
+        <h3>Showing information for this address: </h3>
+        {this.state.address} {this.state.city} {this.state.st} {this.state.zip}
+
       </form>
     );
   }
