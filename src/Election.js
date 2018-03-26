@@ -39,10 +39,13 @@ export default class Election extends React.Component{
                     candidates[i].map((candidate) => race.push(candidate.name))
                     names.push(race)
                 }
-                // console.log(names)
+                // todo: what if we refactored each element of names to be a long string, rather than an array
+                // e.g. string array rather than 2d array
+                names = names.map((race) => race.join(", "))
+                console.log(names)
                 var elections = {}
                 contests.map((x,y) => elections[x] = names[y])
-                console.log(elections)
+                // console.log(elections)
                 this.setState({elections: elections})
             }) 
         
