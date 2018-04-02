@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 
 export default class InputContainer extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {address: '', city: '', st: '', zip: ''};
       this.handleAddressChange = this.handleAddressChange.bind(this)
       this.handleCityChange = this.handleCityChange.bind(this)
