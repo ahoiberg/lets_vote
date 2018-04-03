@@ -10,3 +10,5 @@ probably need to reformat google maps to take map as input, not coordinates
 next step is to get address as input, send that to maps and Civic Info API  
 will need placeholder info before address is inputted (just set up default)
 probably need to make some address class a parent of both reps and voter information
+
+make app the parent of everything or just make input container the parent of Election/Reps??

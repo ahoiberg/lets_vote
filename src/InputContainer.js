@@ -27,6 +27,8 @@ export default class InputContainer extends React.Component {
     }
 
     handleSubmit(event) {
+      // its possible, maybe even likely that state just isn't permanently changed
+         console.log(this.state)
          event.preventDefault();
      }
 

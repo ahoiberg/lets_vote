@@ -16,6 +16,8 @@ export default class Election extends React.Component{
         var address = '419 Boston Ave Medford MA 02155' 
         var electionID = "&electionId=2000"
         var api = first + key.civic_key + middle + address + electionID 
+        var addr = this.props
+        console.log(addr)
         fetch(api)
           .then(response =>
             response.json()
