@@ -13,7 +13,8 @@ export default class Reps extends React.Component {
         var self = this;
         var first = 'https://www.googleapis.com/civicinfo/v2/representatives?key='
         var rest = '&address='
-        var address = '419 Boston Ave Medford MA 02155' 
+        var addr = this.props
+        var address = addr.address.address + addr.address.city + addr.address.st + addr.address.zip 
         var api = first + key.civic_key + rest + address
         address = address.split(' ').join('%20')              
         fetch(api)

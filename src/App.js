@@ -6,76 +6,74 @@ import Reps from './Reps'
 import Election from './Election'
 import {key} from './Keys.js'
 
-class App extends Component {
+export default class App extends Component {
 
   constructor(){
         super();
-        this.state = {address: '', city: '', st: '', zip: ''};
-      this.handleAddressChange = this.handleAddressChange.bind(this)
-      this.handleCityChange = this.handleCityChange.bind(this)
-      this.handleStChange = this.handleStChange.bind(this)
-      this.handleZipChange = this.handleZipChange.bind(this)
-      this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {locationInfo: {
+                        address: '1600 Pennsylvania Ave', 
+                        city: 'Washington', 
+                        st: 'DC', 
+                        zip: '20500'} };
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
+     handleChange(event) {
+        event.preventDefault();
+        let formValues = this.state.locationInfo;
+        let name = event.target.name;
+        let value = event.target.value;
 
-    handleAddressChange(event) {
-      this.setState({address: event.target.value})
-    }
-    handleCityChange(event){
-      this.setState({city: event.target.value})
-    }
-    handleStChange(event){
-      this.setState({st: event.target.value})
-    }
+        formValues[name] = value;
 
-    handleZipChange(event){
-      this.setState({zip: event.target.value})
+        return this.setState({formValues})
     }
 
     handleSubmit(event) {
-      //  state just isn't permanently changed on submit when the request is submitted
-         console.log(this.state)
-         event.preventDefault();
-     }
+        event.preventDefault();
+        let formValues = this.state.locationInfo;
+        console.log(formValues);
+        this.setState({formValues})
+    }
 
   render() {
     return (
       <div>
       <h1> Find information about your representatives! </h1>
         <h2> Find your nearest polling location! </h2>
-      <form>
+      <form onSubmit={this.handleSubmit}>
       <h2> Where do you live?: </h2>
         <label>
           address:
-          <input type="text" name="address" onChange={this.handleAddressChange} />
+          <input type="text" name="address" value={this.state.locationInfo["address"]} onChange={this.handleChange.bind(this)} />
         </label>
         <label>
           city:
-          <input type="text" name="city" onChange={this.handleCityChange} />
+          <input type="text" name="city" value={this.state.locationInfo["city"]} onChange={this.handleChange.bind(this)} />
         </label>
         <label>
           state:
-          <input type="text" name="state" onChange={this.handleStChange} />
+          <input type="text" name="state" value={this.state.locationInfo["st"]} onChange={this.handleChange.bind(this)} />
         </label>
         <label>
           zip:
-          <input type="text" name="zip" onChange={this.handleZipChange} />
+          <input type="text" name="zip" value={this.state.locationInfo["zip"]} onChange={this.handleChange.bind(this)} />
         </label>
         <input type="submit" value="Submit" />
-        <h3>Showing information for this address: </h3>
         {this.state.address} {this.state.city} {this.state.st} {this.state.zip}
 
       </form>
-        < Reps />
-        < Election address={this.state} />
-        <VoterContainer google={this.props.google} />
+        < Reps address={this.state.locationInfo}/>
+        < Election address={this.state.locationInfo} />
       </div>
     );
   }
 }
 
+// need to figure out how to call components again-state is updated but not passed to 
+//children
 
-export default GoogleApiWrapper({
-   apiKey: key.map_key,
- })(App)
+// export default GoogleApiWrapper({
+//    apiKey: key.map_key,
+//  })(App)
 

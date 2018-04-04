@@ -13,11 +13,13 @@ export default class Election extends React.Component{
         var self = this
         var first = "https://www.googleapis.com/civicinfo/v2/voterinfo?key="
         var middle = "&address="
-        var address = '419 Boston Ave Medford MA 02155' 
+        var addr = this.props
+        var address = addr.address.address + addr.address.city + addr.address.st + addr.address.zip 
         var electionID = "&electionId=2000"
         var api = first + key.civic_key + middle + address + electionID 
-        var addr = this.props
+        console.log("hello")
         console.log(addr)
+        console.log(addr.address.city)
         fetch(api)
           .then(response =>
             response.json()
